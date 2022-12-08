@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Despesas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-button id="open-modal-despesa" expand="block">Nova Despesa</ion-button>
+  <ion-content>
+    <ion-list>y
+        <ion-item *ngFor="let despesa of despesas">
+          {{"Tipo Despesa: \t" + despesa.tipoDespesa }}
+        
+      </ion-item>
+    </ion-list>
+  </ion-content>
+ 
+  <ion-modal trigger="open-modal-despesa">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancelar</ion-button>
+          </ion-buttons>
+          <ion-title>Despesa</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="stacked">Tipo da Despesa</ion-label>
+          <ion-input type="text" placeholder="Tipo da Despesa" [(ngModel)]="tipoDespesa"></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
